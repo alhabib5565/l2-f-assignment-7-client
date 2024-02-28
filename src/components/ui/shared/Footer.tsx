@@ -1,5 +1,6 @@
 import Container from "@/layout/Container";
 import { cn } from "@/lib/utils";
+import { useAppSelector } from "@/redux/hooks";
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -26,8 +27,12 @@ const Footer = () => {
       items: ["About", "Press", "Events", "Request Demo"],
     },
   ];
+  const { isDark } = useAppSelector((state) => state.theme);
+
   return (
-    <footer className="bg-primary ">
+    <footer
+      className={cn("bg-primary mt-12 md:mt-24", { "bg-slate-900": isDark })}
+    >
       <Container className="divide-y-[1px] divide-gray-600">
         <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-12 py-12">
           <div>

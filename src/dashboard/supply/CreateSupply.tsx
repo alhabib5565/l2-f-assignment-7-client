@@ -11,6 +11,8 @@ import { useCreateSupplyMutation } from "@/redux/features/supply/supplyApi";
 import { toast } from "sonner";
 import { TSupplyForm, supplyValidationSchema } from "@/types/supply.typs";
 import { useNavigate } from "react-router-dom";
+import { useAppSelector } from "@/redux/hooks";
+import { cn } from "@/lib/utils";
 
 const CreateSupply = () => {
   //state
@@ -59,11 +61,15 @@ const CreateSupply = () => {
       toast.warning("Every field is required");
     }
   };
+  const { isDark } = useAppSelector((state) => state.theme);
 
   return (
     <Container>
       <form
-        className="max-w-2xl mx-auto my-10 border-2 p-4 lg:p-6 bg-white  rounded-xl"
+        className={cn(
+          "max-w-2xl mx-auto my-10 border-2 p-4 lg:p-6 bg-white  rounded-xl",
+          { "bg-slate-800": isDark }
+        )}
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="grid w-full items-center gap-1.5 mb-6">

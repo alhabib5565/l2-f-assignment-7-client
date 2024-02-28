@@ -18,11 +18,14 @@ import { TGoodsData } from "@/types/supply.typs";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import UpdateSupply from "./UpdateSupply";
+import { useAppSelector } from "@/redux/hooks";
+import { cn } from "@/lib/utils";
 const SupplyTable = () => {
   const { data: supplies, isLoading } = useGetAllSupplyQuery({});
   const [deleteSupply] = useDeleteSupplyMutation();
   const [isOpen, setIsOpen] = useState(false);
   const [id, setId] = useState("");
+  const { isDark } = useAppSelector((state) => state.theme);
 
   if (isLoading) {
     return <Loader />;
@@ -68,7 +71,7 @@ const SupplyTable = () => {
       <Table className="max-w-[800px] mx-auto border my-10">
         <TableCaption>A list of our recent donation items.</TableCaption>
         <TableHeader>
-          <TableRow>
+          <TableRow className={cn({ "hover:bg-slate-700": isDark })}>
             <TableHead className="w-[100px]">NO</TableHead>
             <TableHead>Category</TableHead>
             <TableHead>Title</TableHead>
@@ -78,7 +81,10 @@ const SupplyTable = () => {
         </TableHeader>
         <TableBody>
           {supplies.data.map((supply: TGoodsData, index: number) => (
-            <TableRow key={supply._id}>
+            <TableRow
+              key={supply._id}
+              className={cn({ "hover:bg-slate-800": isDark })}
+            >
               <TableCell className="font-medium">{index + 1}</TableCell>
               <TableCell className="font-medium">{supply.title}</TableCell>
               <TableCell>{supply.category}</TableCell>

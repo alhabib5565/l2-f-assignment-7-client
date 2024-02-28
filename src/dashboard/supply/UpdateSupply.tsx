@@ -4,7 +4,9 @@ import { Input } from "@/components/ui/input";
 import AddImage from "@/components/ui/shared/AddImage";
 import { Textarea } from "@/components/ui/textarea";
 import Container from "@/layout/Container";
+import { cn } from "@/lib/utils";
 import { useUpdateSupplyMutation } from "@/redux/features/supply/supplyApi";
+import { useAppSelector } from "@/redux/hooks";
 import { TGoodsData, TSupplyForm } from "@/types/supply.typs";
 import { Label } from "@radix-ui/react-label";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
@@ -68,11 +70,16 @@ const UpdateSupply = ({ isOpen, setIsOpen, id }: TUpdateSupplyProps) => {
     }
   };
 
+  const { isDark } = useAppSelector((state) => state.theme);
+
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen} title="Update Supply">
       <Container>
         <form
-          className="max-w-2xl mx-auto my-5 border-2 p-4 lg:p-6 bg-white  rounded-xl"
+          className={cn(
+            "max-w-2xl mx-auto my-5 border-2 p-4 lg:p-6 bg-white  rounded-xl",
+            { "bg-slate-800": isDark }
+          )}
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="grid w-full items-center gap-1.5 mb-6">

@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { useAppSelector } from "@/redux/hooks";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
@@ -23,7 +24,7 @@ const MySidebar = () => {
       link: "/",
     },
   ];
-
+  const { isDark } = useAppSelector((state) => state.theme);
   return (
     <>
       {menuOpen ? (
@@ -40,19 +41,22 @@ const MySidebar = () => {
       <nav
         className={cn(
           "max-w-[300px] w-full min-h-screen h-full fixed top-0  left-0 translate-x-[0] transition-all bg-primary z-10 p-6 overflow-y-scroll ",
-          { "translate-x-[-100%] ": menuOpen }
+          { "translate-x-[-100%] ": menuOpen },
+          { "bg-slate-900": isDark }
         )}
       >
         <ul className="flex flex-col gap-4 mt-10">
           {menuItems.map((menuItem, index) => (
             <li
-              className="bg-[#F1F5F9] px-4 py-2 rounded-md text-center"
+              className={cn("bg-[#F1F5F9] px-4 py-2 rounded-md text-center", {
+                "bg-slate-300": isDark,
+              })}
               key={index}
             >
               <NavLink
                 className={({ isActive }) =>
                   cn("w-full block hover:text-primary", {
-                    "text-primary": isActive,
+                    "text-primary font-semibold": isActive,
                   })
                 }
                 key={index}

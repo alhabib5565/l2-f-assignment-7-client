@@ -2,18 +2,26 @@ import Loader from "@/components/ui/shared/Loader";
 import ReliefGoodsCard from "@/components/ui/shared/ReliefGoodsCard";
 import SectionHeader from "@/components/ui/shared/SectionHeader";
 import Container from "@/layout/Container";
+import { cn } from "@/lib/utils";
 import { useGetAllSupplyQuery } from "@/redux/features/supply/supplyApi";
+import { useAppSelector } from "@/redux/hooks";
 import { TGoodsData } from "@/types/supply.typs";
 
 const ReliefGoods = () => {
   const { data: reliefGoods, isLoading } = useGetAllSupplyQuery({});
+  const { isDark } = useAppSelector((state) => state.theme);
   if (isLoading) {
     return <Loader />;
   }
   console.log(reliefGoods);
+
   return (
-    <div className="bg-[#FFF0E7]">
-      <Container className="mt-12 lg:mt-24 pt-20 pb-10">
+    <div
+      className={cn(" bg-white", {
+        "bg-slate-900": isDark,
+      })}
+    >
+      <Container className=" pt-20 pb-10">
         <SectionHeader
           subTitle={"Goods"}
           title={`Relief Goods Posts`}

@@ -33,9 +33,9 @@ const Dashboard = () => {
   console.log(donationData);
 
   return (
-    <DContainer className="lg:overflow-hidden">
+    <DContainer className="lg:overflow-hidden ">
       <Chart
-        className="w-full min-h-screen h-full"
+        className="w-full min-h-[calc(100vh-72px)] h-full"
         chartType="PieChart"
         data={donationDat}
         options={options}

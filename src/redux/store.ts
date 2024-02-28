@@ -10,10 +10,12 @@ import {
     PURGE,
     REGISTER,
 } from 'redux-persist';
+import themeSlice from "./features/theme/themeSlice";
 export const store = configureStore({
     reducer: {
         auth: userPersistReducer,
-        [baseApi.reducerPath]: baseApi.reducer
+        [baseApi.reducerPath]: baseApi.reducer,
+        theme: themeSlice
     },
     middleware: (getDEfaultMiddleWare) => getDEfaultMiddleWare({
         serializableCheck: {
@@ -21,6 +23,11 @@ export const store = configureStore({
         }
     }).concat(baseApi.middleware)
 })
+
+
 export const persistor = persistStore(store)
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
+
+
+export const themeSate = (state: RootState) => state.theme

@@ -6,8 +6,12 @@ import dashed from "../../assets/about/dashed.png";
 import { Button } from "@/components/ui/button";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useAppSelector } from "@/redux/hooks";
+import { cn } from "@/lib/utils";
 
 const About = () => {
+  const { isDark } = useAppSelector((state) => state.theme);
+
   const motionDuration = 0.3;
 
   const textRef = useRef<HTMLDivElement>(null);
@@ -26,27 +30,28 @@ const About = () => {
           }}
           className="flex-1 relative bg-red-0 mb-20"
         >
+          {/* Main Image */}
           <img
-            className="w-[80%] rounded-[5%] mx-auto"
+            className="w-[80%] rounded-[5%] mx-auto z-[10] relative" // Higher z-index
             src={mainImage}
             alt=""
           />
-          {/* <img
-            className="translate-y-[-70%] block translate-x-[120%] w-[300px] rounded-[20%] border-8"
-            src={subImage}
-            alt=""
-          /> */}
+
+          {/* Dashed Image */}
           <img
-            className="absolute h-[80%] -bottom-16 object-contain z-[-10] left-0 w-[35%] "
+            className="absolute h-[80%] -bottom-16 object-contain z-[5] left-0 w-[35%]"
             src={dashed}
             alt=""
           />
+
+          {/* Sub Image */}
           <img
-            className="absolute -bottom-16 right-0 w-[40%] rounded-[20%] object-cover border-8 border-white"
+            className="absolute -bottom-16 right-0 w-[40%] rounded-[20%] object-cover border-8 border-white z-[15]" // Higher z-index
             src={subImage}
             alt=""
           />
         </motion.div>
+
         <motion.div
           ref={textRef}
           initial={!textIsInView ? { x: 100, opacity: 0.5 } : ""}
@@ -59,7 +64,9 @@ const About = () => {
           <p className="flex gap-4 items-center justify-center lg:justify-normal text-primary text-[22px] font-[700] tracking-[5px] uppercase">
             <Heart className="size-6" /> <span>ABOUT US</span>
           </p>
-          <h2 className="text-center lg:text-left">
+          <h2
+            className={cn("text-center lg:text-left", { "text-white": isDark })}
+          >
             We Are Non-Profit Charity
             <span className="text-primary"> Organization</span> Provide
           </h2>

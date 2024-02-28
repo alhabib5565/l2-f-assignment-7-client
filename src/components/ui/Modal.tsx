@@ -1,3 +1,5 @@
+import { cn } from "@/lib/utils";
+import { useAppSelector } from "@/redux/hooks";
 import { Dialog, Transition } from "@headlessui/react";
 import { Dispatch, Fragment, ReactNode, SetStateAction } from "react";
 
@@ -12,11 +14,12 @@ const Modal = ({ isOpen, setIsOpen, title, children }: TModalPorps) => {
   function closeModal() {
     setIsOpen(false);
   }
+  const { isDark } = useAppSelector((state) => state.theme);
 
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+        <Dialog as="div" className="relative z-50" onClose={closeModal}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -40,7 +43,12 @@ const Modal = ({ isOpen, setIsOpen, title, children }: TModalPorps) => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-xl transform h-[90vh] overflow-y-scroll rounded-2xl bg-white my-10 p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel
+                  className={cn(
+                    "w-full max-w-2xl transform h-[90vh] overflow-y-scroll rounded-2xl bg-white my-10 p-6 text-left align-middle shadow-xl transition-all",
+                    { "bg-slate-800": isDark }
+                  )}
+                >
                   <Dialog.Title
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"

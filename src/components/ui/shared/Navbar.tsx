@@ -5,6 +5,8 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import MyNavLink from "../MyNavLink";
 import { logout, user } from "@/redux/features/auth/authSlice";
 import { toast } from "sonner";
+import { Moon } from "lucide-react";
+import { toggleTheme } from "@/redux/features/theme/themeSlice";
 
 const Navbar = () => {
   const dispatch = useAppDispatch();
@@ -13,6 +15,10 @@ const Navbar = () => {
   const handleLogout = () => {
     dispatch(logout());
     toast.success("Logout successful!");
+  };
+
+  const handleChangeTheme = () => {
+    dispatch(toggleTheme());
   };
 
   const navItems = [
@@ -26,7 +32,7 @@ const Navbar = () => {
     },
   ];
   return (
-    <div className="bg-white border-b-2 fixed w-full top-0 z-10">
+    <div className="bg-white border-b-2 fixed w-full top-0 z-50">
       <Container className="flex flex-col lg:flex-row lg:justify-between items-center gap-6 py-6">
         <Link className="text-4xl font-bold text-primary " to="/">
           AidBox
@@ -47,6 +53,9 @@ const Navbar = () => {
           ) : (
             <MyNavLink path="/login" pathName="Login" />
           )}
+          <Button onClick={handleChangeTheme}>
+            <Moon />
+          </Button>
         </ul>
       </Container>
     </div>
