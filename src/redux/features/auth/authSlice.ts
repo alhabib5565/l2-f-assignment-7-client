@@ -4,7 +4,9 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'
 
 type TUser = {
-    email: string
+    name: string;
+    photo: string;
+    email: string;
     iat: number;
     exp: number;
 }

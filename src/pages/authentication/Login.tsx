@@ -27,6 +27,7 @@ const Login = () => {
         id: toastId,
       });
       const user = decodeUser(res.token);
+      console.log(user);
       dispatch(login({ user, token: res.token }));
       navigate("/");
 

@@ -3,7 +3,7 @@ import { baseApi } from "@/redux/api/baseApi";
 
 const supplyApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
-        getAllSupply: builder.query({
+        getAllProviders: builder.query({
             query: () => ({
                 url: '/providers'
             }),
@@ -13,4 +13,4 @@ const supplyApi = baseApi.injectEndpoints({
     })
 })
 
-export const { useGetAllSupplyQuery } = supplyApi
+export const { useGetAllProvidersQuery } = supplyApi

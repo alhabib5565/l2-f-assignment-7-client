@@ -3,7 +3,7 @@ import { useAppSelector } from "@/redux/hooks";
 import { Dialog, Transition } from "@headlessui/react";
 import { Dispatch, Fragment, ReactNode, SetStateAction } from "react";
 
-type TModalPorps = {
+export type TModalPorps = {
   isOpen: boolean;
   title: string;
   children: ReactNode;

@@ -24,6 +24,12 @@ const gratitudeApi = baseApi.injectEndpoints({
             }),
             providesTags: ['gratitude']
         }),
+        getAllGratitudeBySupplyId: builder.query({
+            query: (id) => ({
+                url: `/gratitudes/supply/${id}`
+            }),
+            providesTags: ['gratitude']
+        }),
 
         deleteGratitude: builder.mutation({
             query: (id) => ({
@@ -44,4 +50,4 @@ const gratitudeApi = baseApi.injectEndpoints({
     })
 })
 
-export const { useCreateGratitudeMutation, useGetAllGratitudeQuery, useGetSingleGratitudeQuery, useUpdateGratitudeMutation, useDeleteGratitudeMutation } = gratitudeApi
+export const { useCreateGratitudeMutation, useGetAllGratitudeQuery, useGetSingleGratitudeQuery, useUpdateGratitudeMutation, useDeleteGratitudeMutation, useGetAllGratitudeBySupplyIdQuery } = gratitudeApi
