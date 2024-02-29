@@ -22,7 +22,8 @@ const TestimonialCard = ({ provider }: TProvider) => {
         <div className="border-slate-400 border-2 rounded-full p-1">
           <img
             className="w-[85px] h-[85px] rounded-full"
-            src={provider.providerImage}
+            src={"https://source.unsplash.com/random"}
+            // src={provider.providerImage || "https://source.unsplash.com/random"}
             alt=""
           />
         </div>

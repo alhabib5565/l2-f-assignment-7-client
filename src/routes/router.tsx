@@ -2,6 +2,7 @@ import Dashboard from "@/dashboard/dashboardHome/Dashboard";
 import LeaderBoard from "@/dashboard/leaderBoard/LeaderBoard";
 import CreateSupply from "@/dashboard/supply/CreateSupply";
 import SupplyTable from "@/dashboard/supply/SupplyTable";
+import CreateTestimonials from "@/dashboard/testimonials/CreateTestimonials";
 import DashboardLayout from "@/layout/DashboardLayout";
 import MainLayout from "@/layout/MainLayout";
 import Login from "@/pages/authentication/Login";
@@ -57,6 +58,10 @@ export const router = createBrowserRouter([
       {
         path: "supllies",
         element: <SupplyTable />,
+      },
+      {
+        path: "create-testimonial",
+        element: <CreateTestimonials />,
       },
       {
         //top providers and leaderBoard are same

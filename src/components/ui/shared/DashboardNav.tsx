@@ -20,7 +20,7 @@ const DashboardNab = () => {
   const { isDark } = useAppSelector((state) => state.theme);
   return (
     <div
-      className={cn("w-full bg-primary py-4 px-4 sticky z-40 right-0 top-0 ", {
+      className={cn("w-full bg-primary py-4 px-4 sticky z-20 right-0 top-0 ", {
         "bg-slate-800": isDark,
       })}
     >

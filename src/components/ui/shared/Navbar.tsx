@@ -7,6 +7,7 @@ import { logout, user } from "@/redux/features/auth/authSlice";
 import { toast } from "sonner";
 import { Moon } from "lucide-react";
 import { toggleTheme } from "@/redux/features/theme/themeSlice";
+import BeComeAVolunteer from "@/components/volunteer/BeComeAVolunteer";
 
 const Navbar = () => {
   const dispatch = useAppDispatch();
@@ -48,6 +49,7 @@ const Navbar = () => {
           {logedInUser && logedInUser.email ? (
             <>
               <MyNavLink path="/dashboard" pathName="Dashboard" />
+              <BeComeAVolunteer />
               <Button onClick={handleLogout}>Logout</Button>
             </>
           ) : (

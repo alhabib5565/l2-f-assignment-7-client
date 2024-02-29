@@ -95,3 +95,9 @@
     @apply text-[16px] h-[46px] flex items-center text-[#E2E8F0];
   }
 }
+
+body {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}

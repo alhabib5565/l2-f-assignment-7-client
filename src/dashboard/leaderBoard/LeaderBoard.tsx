@@ -27,14 +27,14 @@ const LeaderBoard = () => {
     return <Loader />;
   }
   return (
-    <DContainer>
+    <DContainer className="mb-10">
       <div className="mt-14">
         <p className="text-slate-400 text-2xl font-medium mb-4">Leaderboard</p>
         <h2 className={cn("text-primary/90", { "text-slate-400": isDark })}>
           Top Providers
         </h2>
       </div>
-      <div className="flex justify-between gap-8 w-full mt-10">
+      <div className="flex flex-col lg:flex-row justify-between gap-8 w-full mt-10">
         {/* card */}
         <div className="space-y-8">
           {providers.data
@@ -76,7 +76,10 @@ const LeaderBoard = () => {
               {providers.data
                 .slice(3)
                 .map((provider: TProvider, index: number) => (
-                  <TableRow className={cn({ "hover:bg-slate-800": isDark })}>
+                  <TableRow
+                    key={index}
+                    className={cn({ "hover:bg-slate-800": isDark })}
+                  >
                     <TableCell className="font-medium text-lg">
                       {" "}
                       {index + 1}
