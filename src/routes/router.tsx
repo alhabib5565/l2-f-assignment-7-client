@@ -1,4 +1,5 @@
 import Dashboard from "@/dashboard/dashboardHome/Dashboard";
+import LeaderBoard from "@/dashboard/leaderBoard/LeaderBoard";
 import CreateSupply from "@/dashboard/supply/CreateSupply";
 import SupplyTable from "@/dashboard/supply/SupplyTable";
 import DashboardLayout from "@/layout/DashboardLayout";
@@ -56,6 +57,11 @@ export const router = createBrowserRouter([
       {
         path: "supllies",
         element: <SupplyTable />,
+      },
+      {
+        //top providers and leaderBoard are same
+        path: "top-providers/leader-board",
+        element: <LeaderBoard />,
       },
     ],
   },

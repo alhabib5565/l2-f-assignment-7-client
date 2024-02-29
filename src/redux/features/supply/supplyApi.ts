@@ -11,18 +11,21 @@ const supplyApi = baseApi.injectEndpoints({
             }),
             invalidatesTags: ['supply']
         }),
+
         getAllSupply: builder.query({
             query: () => ({
                 url: '/supplies'
             }),
             providesTags: ['supply']
         }),
+
         getSingleSupply: builder.query({
             query: (id) => ({
                 url: `/supply/${id}`
             }),
             providesTags: ['supply']
         }),
+
         deleteSupply: builder.mutation({
             query: (id) => ({
                 url: `/supply/${id}`,
@@ -30,6 +33,7 @@ const supplyApi = baseApi.injectEndpoints({
             }),
             invalidatesTags: ['supply']
         }),
+
         updateSupply: builder.mutation({
             query: ({ id, updatedSupplyData }) => ({
                 url: `/supply/${id}`,

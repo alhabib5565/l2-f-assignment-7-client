@@ -19,6 +19,12 @@ const MySidebar = () => {
       linkName: " Supply",
       link: "/dashboard/supllies",
     },
+
+    {
+      //top providers and leaderBoard are same
+      linkName: "Top Providers",
+      link: "/dashboard/top-providers/leader-board",
+    },
     {
       linkName: "home",
       link: "/",
