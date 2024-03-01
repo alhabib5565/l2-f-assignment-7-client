@@ -28,6 +28,10 @@ const Navbar = () => {
       pathName: "Home",
     },
     {
+      path: "/about-us",
+      pathName: "About Us",
+    },
+    {
       path: "/relief-goods",
       pathName: "Relief Goods",
     },

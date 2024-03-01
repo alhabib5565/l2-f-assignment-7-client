@@ -95,9 +95,11 @@ const ReliefGoodsDetails = ({ className }: { className?: string }) => {
           <ReviewForm supplyId={_id} />
         </div>
         <div className="space-y-6 w-full">
-          {allGratitudesForTheSupply.data.map((item: TGratitude) => (
-            <GratitudeCard gratitudeData={item} key={item._id} />
-          ))}
+          {allGratitudesForTheSupply.data.length
+            ? allGratitudesForTheSupply.data.map((item: TGratitude) => (
+                <GratitudeCard gratitudeData={item} key={item._id} />
+              ))
+            : ""}
         </div>
       </div>
     </Container>

@@ -7,7 +7,12 @@ import { useGetSingleGratitudeQuery } from "@/redux/features/gratitudeApi/gratit
 import { TGratitude } from "@/types";
 import Loader from "./Loader";
 
-const GratitudeCard = ({ gratitudeData }: { gratitudeData: TGratitude }) => {
+type TGratitudeCardProp = {
+  gratitudeData: TGratitude;
+  className?: string;
+};
+
+const GratitudeCard = ({ gratitudeData, className }: TGratitudeCardProp) => {
   const { isDark } = useAppSelector((state) => state.theme);
   const [isOpen, setIsOpen] = useState(false);
   const [id, setId] = useState("");
@@ -17,16 +22,20 @@ const GratitudeCard = ({ gratitudeData }: { gratitudeData: TGratitude }) => {
   };
   return (
     <div
-      className={cn("flex gap-8 p-6 rounded-[50px] bg-white border", {
-        "bg-slate-800": isDark,
-      })}
+      className={cn(
+        "flex mb-1 gap-8 p-6 rounded-[50px] bg-white border shadow-md",
+        className,
+        {
+          "bg-slate-800": isDark,
+        }
+      )}
     >
       <img
         className="size-[150px] border rounded-full"
         src={gratitudeData.user.photo || "https://source.unsplash.com/random"}
         alt=""
       />
-      <div className="space-y-6">
+      <div className="space-y-4">
         <div>
           <h4
             className={cn("card-heading text-xl font-semibold ", {

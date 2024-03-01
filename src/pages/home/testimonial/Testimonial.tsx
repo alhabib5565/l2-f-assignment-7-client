@@ -12,6 +12,7 @@ import SectionHeader from "@/components/ui/shared/SectionHeader";
 import { useGetAllTestimonialQuery } from "@/redux/features/testimonialApi/testimonialApi";
 import Loader from "@/components/ui/shared/Loader";
 import { TTestimonial } from "@/types/testimonials";
+import { responsive } from "@/constant";
 const Testimonial = () => {
   const { data: testimonials, isLoading } =
     useGetAllTestimonialQuery(undefined);
@@ -19,21 +20,6 @@ const Testimonial = () => {
   if (isLoading) {
     return <Loader />;
   }
-
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
-  };
 
   return (
     <Container className="mt-14 lg:mt-24 ">

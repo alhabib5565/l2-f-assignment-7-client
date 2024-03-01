@@ -2,6 +2,7 @@ import About from "./About";
 import Hero from "./Hero";
 import ReliefGoods from "./ReliefGoods";
 import Gallery from "./gallery/Gallery";
+import GratitudeWallSection from "./gratitude/GratitudeWallSection";
 import Testimonial from "./testimonial/Testimonial";
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
       <About />
       <Testimonial />
       <Gallery />
+      <GratitudeWallSection />
     </div>
   );
 };

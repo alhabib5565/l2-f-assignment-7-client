@@ -5,6 +5,7 @@ import SupplyTable from "@/dashboard/supply/SupplyTable";
 import CreateTestimonials from "@/dashboard/testimonials/CreateTestimonials";
 import DashboardLayout from "@/layout/DashboardLayout";
 import MainLayout from "@/layout/MainLayout";
+import AboutUs from "@/pages/AboutUs/AboutUs";
 import Login from "@/pages/authentication/Login";
 import Register from "@/pages/authentication/Register";
 import Home from "@/pages/home/Home";
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
       {
         path: "relief-goods",
         element: <AllReliefGoods />,
+      },
+      {
+        path: "about-us",
+        element: <AboutUs />,
       },
       {
         path: "relief-goods/:id",

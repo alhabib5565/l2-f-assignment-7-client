@@ -19,7 +19,7 @@ const About = () => {
   const imgRef = useRef<HTMLDivElement>(null);
   const imgIsInView = useInView(imgRef);
   return (
-    <div className="mt-14 lg:mt-32 overflow-hidden">
+    <div className="pt-14 lg:pt-32 pb-14 lg:pb-24 overflow-hidden">
       <Container className="flex flex-col-reverse lg:flex-row gap-14 items-center">
         <motion.div
           ref={imgRef}

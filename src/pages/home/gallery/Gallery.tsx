@@ -10,7 +10,7 @@ import GalleryCard from "./GalleryCard";
 const Gallery = () => {
   const images = [image1, image2, image3, image4, image5, image6];
   return (
-    <div className="mt-14 lg:mt-32 pb-10">
+    <div className="py-14 lg:py-32">
       <SectionHeader
         subTitle="PHOTO GALLERY"
         title="Explore Our Photo Gallery"
