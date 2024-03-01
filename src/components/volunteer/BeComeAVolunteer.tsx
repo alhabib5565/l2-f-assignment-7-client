@@ -12,7 +12,7 @@ const BeComeAVolunteer = () => {
       <Button
         onClick={handleModalOpen}
         variant={"outline"}
-        className="bg-transparent text-primary border-primary border hover:text-primary"
+        className="bg-transparent text-primary border-primary border hover:text-primary w-full lg:w-fit"
       >
         Be come a volunteer
       </Button>

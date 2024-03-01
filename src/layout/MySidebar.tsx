@@ -38,19 +38,20 @@ const MySidebar = () => {
   return (
     <>
       {menuOpen ? (
-        <Menu
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="size-10 fixed top-4 left-6  lg:hidden cursor-pointer text-primary bg-white p-1 rounded-full z-50"
-        />
-      ) : (
         <X
           onClick={() => setMenuOpen(!menuOpen)}
           className="size-10 fixed top-4 left-6  lg:hidden cursor-pointer text-primary bg-white p-1 rounded-full z-50"
         />
+      ) : (
+        <Menu
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="size-10 fixed top-4 left-6  lg:hidden cursor-pointer text-primary bg-white p-1 rounded-full z-50"
+        />
       )}
+      {/* for large divice */}
       <nav
         className={cn(
-          "max-w-[300px] w-full min-h-screen h-full fixed top-0  left-0 translate-x-[0] transition-all bg-primary z-30 p-6 overflow-y-scroll ",
+          "max-w-[300px] hidden lg:block w-full min-h-screen h-full fixed top-0  left-0 translate-x-[0] transition-all bg-primary z-30 p-6 overflow-y-scroll ",
           { "translate-x-[-100%] ": menuOpen },
           { "bg-slate-900": isDark }
         )}
@@ -64,6 +65,39 @@ const MySidebar = () => {
               key={index}
             >
               <NavLink
+                className={({ isActive }) =>
+                  cn("w-full block hover:text-primary", {
+                    "text-primary font-semibold": isActive,
+                  })
+                }
+                key={index}
+                to={menuItem.link}
+              >
+                {menuItem.linkName}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      {/* for mobile divice */}
+      <nav
+        className={cn(
+          "max-w-[300px] w-full min-h-screen h-full fixed top-0  left-0 translate-x-[-100%] transition-all bg-primary z-30 p-6 overflow-y-scroll ",
+          { "translate-x-[0] ": menuOpen },
+          { "bg-slate-900": isDark }
+        )}
+      >
+        <ul className="flex flex-col gap-4 mt-[50px]">
+          {menuItems.map((menuItem, index) => (
+            <li
+              className={cn("bg-[#F1F5F9] px-4 py-2 rounded-md text-center", {
+                "bg-slate-300": isDark,
+              })}
+              key={index}
+            >
+              <NavLink
+                onClick={() => setMenuOpen(!menuOpen)}
                 className={({ isActive }) =>
                   cn("w-full block hover:text-primary", {
                     "text-primary font-semibold": isActive,

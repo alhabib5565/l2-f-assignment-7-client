@@ -15,7 +15,7 @@ const VolunteerSection = () => {
         subTitle="OUR VOLUNTEERS"
         title="Meet With Our Awesome Volunteers"
       />
-      <Container className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-20">
+      <Container className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <VolunteerCard />
         <VolunteerCard />
         <VolunteerCard />

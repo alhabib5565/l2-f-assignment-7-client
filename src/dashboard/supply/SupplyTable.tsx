@@ -68,7 +68,7 @@ const SupplyTable = () => {
 
   return (
     <DContainer>
-      <Table className="max-w-[800px] mx-auto border my-10">
+      <Table className="max-w-[800px] mx-auto border my-10 whitespace-nowrap overflow-x-auto">
         <TableCaption>A list of our recent donation items.</TableCaption>
         <TableHeader>
           <TableRow className={cn({ "hover:bg-slate-700": isDark })}>

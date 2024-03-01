@@ -9,7 +9,7 @@ const VolunteerCard = () => {
   return (
     <div
       className={cn(
-        "bg-white group p-4 lg:p-6 shadow-sm rounded-[15px] text-center relative transition-all ",
+        "bg-white group p-4 lg:p-6 shadow-sm rounded-[15px] text-center relative transition-all mt-20",
         { "bg-slate-900/50": isDark }
       )}
     >
@@ -21,7 +21,9 @@ const VolunteerCard = () => {
         )}
         alt=""
       />
-      <h2 className={cn({ "text-slate-300": isDark })}>Volunteer Name</h2>
+      <h2 className={cn({ "text-slate-300": isDark }, "mt-2")}>
+        Volunteer Name
+      </h2>
       <p className={cn("text-primary", { "text-slate-400": isDark })}>
         Volunteer
       </p>

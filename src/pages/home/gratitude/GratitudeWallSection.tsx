@@ -37,7 +37,11 @@ const GratitudeWallSection = () => {
           itemClass="px-5"
         >
           {gratitudes.data.slice(0, 6).map((gratitude: TGratitude) => (
-            <GratitudeCard className="flex-col" gratitudeData={gratitude} />
+            <GratitudeCard
+              key={gratitude._id}
+              className="flex-col"
+              gratitudeData={gratitude}
+            />
           ))}
         </Carousel>
       </Container>
